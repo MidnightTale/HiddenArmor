@@ -11,3 +11,4 @@ commands:
     aliases: [ha, armor]
   togglearmor:
     description: "Toggles armor visibility."
+folia-supported: true

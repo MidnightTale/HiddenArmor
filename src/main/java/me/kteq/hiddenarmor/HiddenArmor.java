@@ -2,6 +2,7 @@ package me.kteq.hiddenarmor;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
+import com.tcoded.folialib.FoliaLib;
 import me.kteq.hiddenarmor.command.HiddenArmorTabCompleter;
 import me.kteq.hiddenarmor.command.HiddenArmorCommand;
 import me.kteq.hiddenarmor.command.ToggleArmorCommand;
@@ -22,6 +23,7 @@ import java.util.logging.Level;
 
 public final class HiddenArmor extends JavaPlugin {
     private HiddenArmorManager hiddenArmorManager;
+    public FoliaLib foliaLib = new FoliaLib(this);
 
     private boolean isOld;
 
