@@ -8,15 +8,19 @@ plugins {
 group = "me.kteq"
 version = "1.1.0"
 
-val mcVersion = "1.21.5"
+val mcVersion = "1.21.6"
 val fullVersion = "${version}-mc${mcVersion}"
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://repo.extendedclip.com/releases/")
+    }
 }
 
 dependencies {
     paperweight.paperDevBundle("$mcVersion-R0.1-SNAPSHOT")
+    compileOnly("me.clip:placeholderapi:2.11.6")
 }
 
 java {

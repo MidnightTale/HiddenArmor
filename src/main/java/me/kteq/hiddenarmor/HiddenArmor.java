@@ -9,6 +9,7 @@ import me.kteq.hiddenarmor.listener.InventoryShiftClickListener;
 import me.kteq.hiddenarmor.listener.PotionEffectListener;
 import me.kteq.hiddenarmor.listener.packet.PlayerListener;
 import me.kteq.hiddenarmor.manager.HiddenArmorManager;
+import me.kteq.hiddenarmor.placeholder.HiddenArmorExpansion;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -67,6 +68,18 @@ public final class HiddenArmor extends JavaPlugin {
         new GameModeListener(this);
         new PotionEffectListener(this);
         new EntityToggleGlideListener(this);
+        
+        // Register PlaceholderAPI expansion
+        registerPlaceholderAPI();
+    }
+
+    private void registerPlaceholderAPI() {
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new HiddenArmorExpansion(this).register();
+            getLogger().info("PlaceholderAPI expansion registered successfully!");
+        } else {
+            getLogger().info("PlaceholderAPI not found, skipping expansion registration.");
+        }
     }
 
     @Override

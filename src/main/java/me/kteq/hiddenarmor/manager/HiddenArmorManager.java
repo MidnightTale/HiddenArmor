@@ -48,6 +48,7 @@ public class HiddenArmorManager {
 
         this.enabledPlayers.add(player.getUniqueId());
         ArmorUpdater.updatePlayer(player);
+        player.updateInventory();
     }
 
     public void disablePlayer(Player player, boolean inform) {
@@ -60,6 +61,7 @@ public class HiddenArmorManager {
 
         enabledPlayers.remove(player.getUniqueId());
         ArmorUpdater.updatePlayer(player);
+        player.updateInventory();
     }
 
     public boolean isEnabled(Player player) {
