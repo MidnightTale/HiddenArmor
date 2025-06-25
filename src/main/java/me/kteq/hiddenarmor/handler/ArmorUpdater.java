@@ -12,13 +12,16 @@ public final class ArmorUpdater {
     public static void updatePlayer(Player player) {
         updateSelf(player);
         updateOthers(player);
+        
     }
 
     public static void updateSelf(Player player) {
         for (var slot : EquipmentSlot.values()) {
             if (slot.isArmor() && slot != EquipmentSlot.BODY) {
                 PacketHandler.sendContainerSetSlotPacket(player, slot);
+                
             }
+        player.updateInventory();
         }
     }
 
@@ -36,6 +39,8 @@ public final class ArmorUpdater {
                 viewer.sendEquipmentChange(player, enumMap);
             }
         }
+
+        player.updateInventory();
     }
 
     private ArmorUpdater() {
